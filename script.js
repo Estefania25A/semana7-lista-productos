@@ -12,21 +12,52 @@ function renderizarProductos() {
 
   productos.forEach(producto => {
     const li = document.createElement("li");
-    li.innerHTML = `<strong>${producto.nombre}</strong> - $${producto.precio}<br>${producto.descripcion}`;
+
+    const nombreElem = document.createElement("strong");
+    nombreElem.textContent = producto.nombre;
+
+    const precioElem = document.createElement("span");
+    precioElem.className = "precio";
+    precioElem.textContent = `$${producto.precio}`;
+
+    const descripcionElem = document.createElement("p");
+    descripcionElem.textContent = producto.descripcion;
+
+    li.appendChild(nombreElem);
+    li.appendChild(document.createElement("br"));
+    li.appendChild(precioElem);
+    li.appendChild(document.createElement("br"));
+    li.appendChild(descripcionElem);
+
     lista.appendChild(li);
   });
 }
 
-// Botón para agregar un nuevo producto genérico
+// Evento para agregar un nuevo producto con datos ingresados por el usuario
 document.getElementById("agregar-producto").addEventListener("click", () => {
-  const nuevoProducto = {
-    nombre: "Nueva prenda",
-    precio: 0,
-    descripcion: "Descripción pendiente."
-  };
-  productos.push(nuevoProducto);
+  const nombre = prompt("Ingrese el nombre de la prenda:");
+  if (!nombre) {
+    alert("Debe ingresar un nombre.");
+    return;
+  }
+
+  const precioStr = prompt("Ingrese el precio:");
+  const precio = parseFloat(precioStr);
+  if (isNaN(precio) || precio <= 0) {
+    alert("Precio inválido.");
+    return;
+  }
+
+  const descripcion = prompt("Ingrese una descripción:");
+  if (!descripcion) {
+    alert("Debe ingresar una descripción.");
+    return;
+  }
+
+  productos.push({ nombre, precio, descripcion });
   renderizarProductos();
 });
 
-// Renderizar automáticamente al cargar la página
+// Renderizar productos al cargar la página
 window.onload = renderizarProductos;
+;
