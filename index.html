@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lista de Ropa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #fff;
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 5px solid #6c5ce7;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    strong {
+      font-size: 1.2em;
+      color: #2d3436;
+    }
+
+    .precio {
+      color: #00b894;
+      font-weight: bold;
+    }
+
+    button {
+      display: block;
+      margin: 30px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #6c5ce7;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #5a4de0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de Ropa</h1>
+
+  <ul id="lista-productos"></ul>
+
+  <button id="agregar-producto">Agregar Prenda</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
